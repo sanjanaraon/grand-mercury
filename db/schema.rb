@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150131084101) do
+ActiveRecord::Schema.define(version: 20150131121119) do
+
+  create_table "menu_items", force: :cascade do |t|
+    t.string   "name"
+    t.float    "price"
+    t.integer  "menu_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "menu_items", ["menu_id"], name: "index_menu_items_on_menu_id"
 
   create_table "menus", force: :cascade do |t|
     t.string   "kind"
